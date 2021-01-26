@@ -1,0 +1,50 @@
+* {
+    box-sizing: border-box;
+  }
+  
+ 
+  form.userinput input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 20%;
+    background: #f1f1f1;
+  }
+  
+
+  form.userinput button {
+    float: left;
+    width: 5%;
+    padding: 10px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none; 
+    cursor: pointer;
+  }
+  
+  form.userinput button:hover {
+    background: #0b7dda;
+  }
+  
+
+  form.userinput::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+
+.header {
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+font-size: 40px;
+background-color: rgb(68, 68, 68);
+padding: 30px;
+display: flex;
+justify-content: center;
+color: white;
+
+}
+
