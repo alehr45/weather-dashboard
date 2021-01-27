@@ -1,5 +1,6 @@
 * {
 box-sizing: border-box;
+
 }
   
  
@@ -73,7 +74,25 @@ h1 {
   font-size: 45px;
 }
 
-.weather-tomorrow {
-  display: flex;
-  justify-content: center;
+.forecastbox1 {
+padding-top: 5px;
+text-align: center;
+width: 200px;
+height: 200px;
+background-color: rgb(35, 97, 190); 
+display: block;
+flex-direction: column;
+
+}
+
+.forecastbox2 {
+padding-top: 5px;
+float:inline-start;
+text-align: center;
+height: 200px;
+width: 200px;
+background-color: rgb(35, 97, 190); 
+display: block;
+flex-direction: column;
+
 }
