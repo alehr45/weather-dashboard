@@ -48,3 +48,8 @@ color: white;
 margin-bottom: 5px;
 }
 
+.container {
+  padding-left: 40px;
+    display: fleX;
+    justify-content: left;
+}
