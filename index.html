@@ -19,15 +19,32 @@
         <button type="submit"><i class="fa fa-search"></i></button>
         <div class="container">
             <div id="weather">
-                <div id="description"></div>
-                <h1 id="temp"></h1>
-                <div id="location"></div>
+                <h1 class="icon" id="icon"></h1>
+                <h1 class="location" id="location"></h1>
+                <h1 id="currentDay" class="time"></h1>
+                <h1 class="temp" id="temp"></h1>
+                <h1 class="description" id="description"></h1>
+                <h1 class="humidity" id="humidity"></h1>
+                <h1 class="windspeed" id="windspeed"></h1>
             </div>
+        </div>
     </form>
 
-</body>
+<form>
+<h1 class="weathertomorrow" id="tomorrow">Tomorrow</h1>
 
+
+</form>
+
+
+
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+    integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+    crossorigin="anonymous"></script>
 <script src="./Develop/js/script.js"></script>
+
 
 
 </html>
