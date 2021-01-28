@@ -1,6 +1,7 @@
 * {
 box-sizing: border-box;
 
+
 }
   
  
@@ -21,7 +22,7 @@ form.userinput button {
     background: #2196F3;
     color: white;
     font-size: 17px;
-    border: 1px solid grey;
+    border: 0.5px solid grey;
     border-left: none; 
     cursor: pointer;
   }
@@ -41,21 +42,21 @@ form.userinput::after {
 .header {
 font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 font-size: 40px;
-background-color: rgb(35, 97, 190);
+background-color: rgb(50, 138, 189);
 padding: 20px;
 display: flex;
 justify-content: center;
 color: white;
-margin-bottom: 5px;
+margin-bottom: 0px;
+border: 0.75px solid black;
 }
 
 .container {
+  border: 0.5px solid rgb(122, 122, 122);
   padding: 20px;
-  background-color: rgb(212, 226, 21);
   text-align: center;
+  background-color: rgb(147, 195, 235);
   padding-top: 0px;
-  
-  
   display: fleX;
   justify-content: center;
 }
@@ -65,8 +66,10 @@ h1 {
 }
 
 .temp {
-  background-color: rgb(35, 97, 190);
-  font-size: 40px;
+
+  border-radius: 25px;
+  background-color: rgb(218, 190, 33);
+  font-size: 30px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -75,24 +78,57 @@ h1 {
 }
 
 .forecastbox1 {
+margin: 10px;
 padding-top: 5px;
 text-align: center;
 width: 200px;
 height: 200px;
-background-color: rgb(35, 97, 190); 
-display: block;
-flex-direction: column;
+background-color:  rgb(50, 138, 189);
+border: 0.5px solid black;
 
 }
 
 .forecastbox2 {
+margin: 10px;
 padding-top: 5px;
 float:inline-start;
 text-align: center;
 height: 200px;
 width: 200px;
-background-color: rgb(35, 97, 190); 
-display: block;
-flex-direction: column;
-
+background-color: rgb(50, 138, 189);
+border: 0.75px solid black;
 }
+
+.forecastbox3 {
+  margin: 10px;
+  padding-top: 5px;
+  float:inline-start;
+  text-align: center;
+  height: 200px;
+  width: 200px;
+  background-color: rgb(50, 138, 189);
+  border: 0.75px solid black;
+  }
+  
+  .forecastbox4 {
+    margin: 10px;
+    padding-top: 5px;
+    float:inline-start;
+    text-align: center;
+    height: 200px;
+    width: 200px;
+    background-color: rgb(50, 138, 189);
+    border: 0.75px solid black;
+    }
+    
+    .forecastbox5 {
+      margin: 10px;
+      padding-top: 5px;
+      float:inline-start;
+      text-align: center;
+      height: 200px;
+      width: 200px;
+      background-color: rgb(50, 138, 189);
+      border: 0.75px solid black;
+      }
+      

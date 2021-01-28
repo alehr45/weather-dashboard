@@ -64,10 +64,23 @@ function getForecast1(data) {
   document.getElementById('onedaydate').innerHTML = moment().add(1, 'days').format('dddd');
   document.getElementById('onedaytemp').innerHTML = "Temp: " + Math.round(((parseFloat(data.list[4].main.temp) - 273.15) * 1.8) + 32) + '&deg;';
   document.getElementById('onedayhumidity').innerHTML = "Humidity: " + data.list[5].main.humidity + "%";
-  document.querySelector(".twodayicon").innerHTML = "<img src='http://openweathermap.org/img/w/" + data.list[12].weather[0].icon + ".png' alt='Icon depicting current weather.'>";
+  document.querySelector(".twodayicon").innerHTML = "<img src='http://openweathermap.org/img/w/" + data.list[16].weather[0].icon + ".png' alt='Icon depicting current weather.'>";
   document.getElementById('twodaydate').innerHTML = moment().add(2, 'days').format('dddd');
   document.getElementById('twodaytemp').innerHTML = "Temp: " + Math.round(((parseFloat(data.list[12].main.temp) - 273.15) * 1.8) + 32) + '&deg;';
   document.getElementById('twodayhumidity').innerHTML = "Humidity: " + data.list[12].main.humidity + "%";
+  document.querySelector(".threedayicon").innerHTML = "<img src='http://openweathermap.org/img/w/" + data.list[20].weather[0].icon + ".png' alt='Icon depicting current weather.'>";
+  document.getElementById('threedaydate').innerHTML = moment().add(3, 'days').format('dddd');
+  document.getElementById('threedaytemp').innerHTML = "Temp: " + Math.round(((parseFloat(data.list[20].main.temp) - 273.15) * 1.8) + 32) + '&deg;';
+  document.getElementById('threedayhumidity').innerHTML = "Humidity: " + data.list[20].main.humidity + "%";
+  document.querySelector(".fourdayicon").innerHTML = "<img src='http://openweathermap.org/img/w/" + data.list[28].weather[0].icon + ".png' alt='Icon depicting current weather.'>";
+  document.getElementById('fourdaydate').innerHTML = moment().add(4, 'days').format('dddd');
+  document.getElementById('fourdaytemp').innerHTML = "Temp: " + Math.round(((parseFloat(data.list[28].main.temp) - 273.15) * 1.8) + 32) + '&deg;';
+  document.getElementById('fourdayhumidity').innerHTML = "Humidity: " + data.list[28].main.humidity + "%";
+  document.querySelector(".fivedayicon").innerHTML = "<img src='http://openweathermap.org/img/w/" + data.list[33].weather[0].icon + ".png' alt='Icon depicting current weather.'>";
+  document.getElementById('fivedaydate').innerHTML = moment().add(5, 'days').format('dddd');
+  document.getElementById('fivedaytemp').innerHTML = "Temp: " + Math.round(((parseFloat(data.list[33].main.temp) - 273.15) * 1.8) + 32) + '&deg;';
+  document.getElementById('fivedayhumidity').innerHTML = "Humidity: " + data.list[33].main.humidity + "%";
+
 
 };
 
