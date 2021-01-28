@@ -42,6 +42,7 @@ form.userinput::after {
 .header {
 font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 font-size: 40px;
+text-shadow: 1px 1px #414040;
 background-color: rgb(50, 138, 189);
 padding: 20px;
 display: flex;
@@ -53,11 +54,10 @@ border: 0.75px solid black;
 
 .container {
   border: 0.5px solid rgb(122, 122, 122);
-  padding: 20px;
   text-align: center;
-  background-color: rgb(147, 195, 235);
+  background-color: rgb(224, 224, 224);
   padding-top: 0px;
-  display: fleX;
+  display: flex;
   justify-content: center;
 }
 
@@ -66,7 +66,7 @@ h1 {
 }
 
 .temp {
-
+  border: 0.5px solid rgb(122, 122, 122);
   border-radius: 25px;
   background-color: rgb(218, 190, 33);
   font-size: 30px;
@@ -77,58 +77,22 @@ h1 {
   font-size: 45px;
 }
 
-.forecastbox1 {
+.forecastbox1, .forecastbox2, .forecastbox3, .forecastbox4, .forecastbox5 {
+font-family:'Times New Roman', Times, serif;
+border-radius: 25px;
 margin: 10px;
 padding-top: 5px;
 text-align: center;
 width: 200px;
 height: 200px;
-background-color:  rgb(50, 138, 189);
+background-color:  rgb(122, 184, 219);
 border: 0.5px solid black;
 
 }
 
-.forecastbox2 {
-margin: 10px;
-padding-top: 5px;
-float:inline-start;
-text-align: center;
-height: 200px;
-width: 200px;
-background-color: rgb(50, 138, 189);
-border: 0.75px solid black;
-}
 
-.forecastbox3 {
-  margin: 10px;
-  padding-top: 5px;
-  float:inline-start;
-  text-align: center;
-  height: 200px;
-  width: 200px;
-  background-color: rgb(50, 138, 189);
-  border: 0.75px solid black;
-  }
-  
-  .forecastbox4 {
-    margin: 10px;
-    padding-top: 5px;
-    float:inline-start;
-    text-align: center;
-    height: 200px;
-    width: 200px;
-    background-color: rgb(50, 138, 189);
-    border: 0.75px solid black;
-    }
-    
-    .forecastbox5 {
-      margin: 10px;
-      padding-top: 5px;
-      float:inline-start;
-      text-align: center;
-      height: 200px;
-      width: 200px;
-      background-color: rgb(50, 138, 189);
-      border: 0.75px solid black;
-      }
       
+.icon {
+font-size: 40px;
+
+      }
