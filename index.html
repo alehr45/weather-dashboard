@@ -14,24 +14,32 @@
 </header>
 
 <body>
-    <form class="userinput" id ="city-search-form">
-        <input id="city" type="text" placeholder="Search for city.." name="search">
+    <form class="userinput" id="city-search-form">
+
+        <input id="city" type="text" placeholder=" Search for city.." name="search">
         <button type="submit" class="fa fa-search submit"></button>
+        <ul class="recentsearches">
+            <li>Franklin</li>
+            <li>Chattanooga</li>
+            <li>Knoxville</li>
+            <li>Memphis</li>
+        </ul>
+
         <div class="container">
             <div id="weather">
-            </form>
+    </form>
+    <h1 class="location" id="location"></h1>
+    <h1 id="currentDay" class="time"></h1>
+    <h1 class="temp" id="temp"></h1>
+    <h1 class="icon" id="icon"></h1>
+    <h1 class="humidity" id="humidity"></h1>
+    <h1 class="windspeed" id="windspeed"></h1>
+    <h1 class="uvindex" id="uvindex"></h1>
+    </div>
+    </div>
 
-                <h1 class="location" id="location"></h1>
-                <h1 id="currentDay" class="time"></h1>
-                <h1 class="temp" id="temp"></h1>
-                <h1 class="icon" id="icon"></h1>
-                <h1 class="humidity" id="humidity"></h1>
-                <h1 class="windspeed" id="windspeed"></h1>
-            </div>
-        </div>
-    
 
-    <div class="container" >
+    <div class="container">
         <div class="row">
             <div class="col-sm forecastbox1" id="forecastbox1">
                 <h1 class="onedaydate" id="onedaydate"></h1>

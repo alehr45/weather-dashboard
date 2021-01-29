@@ -3,7 +3,14 @@ box-sizing: border-box;
 
 
 }
-  
+.recentsearches {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 10px;
+  font-size: 20px;
+
+
+}
  
 form.userinput input[type=text] {
   border-radius: 25px;
@@ -52,10 +59,11 @@ display: flex;
 justify-content: center;
 color: white;
 margin-bottom: 2px;
-border: 0.75px solid black;
+border: 0.75px solid grey;
 }
 
 .container {
+  margin: 5px;
   border-radius: 25px;
   border: 0.5px solid rgb(122, 122, 122);
   text-align: center;
@@ -90,7 +98,7 @@ text-align: center;
 width: 200px;
 height: 200px;
 background-color:  rgb(122, 184, 219);
-border: 0.5px solid black;
+border: 0.75px solid grey;
 
 }
 

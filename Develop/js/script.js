@@ -14,10 +14,7 @@ var formSumbitHandler = function(event){
     getForecast(city);
     saveCity(city);
     getForecast(city);
-   
-  
-     
-     citySearchEl.value = "";
+  citySearchEl.value = "";
   } else{
       alert("Please enter a City");
   }
@@ -30,11 +27,10 @@ var saveSearch = function(){
 saveCity = function (city) {
 
   var apiKey = "5eb37a19973c9457201128f6d1d5ae80";
-  var apiUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey;
+  var apiUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey; "&exclude=hourly,daily&appid=5eb37a19973c9457201128f6d1d5ae80"
   fetch(apiUrl)
     .then(function (response) {
       if (response.ok) {
-        
         response.json().then(function (data) {
           getWeather(data);
         });
@@ -43,6 +39,17 @@ saveCity = function (city) {
 
 };
 
+function defaultCity() {
+  let city = "Nashville";
+  getForecast(city);
+  saveCity(city);
+  getForecast(city);
+ 
+ cityName = "";
+}
+
+  
+
 getForecast = function (city) {
 
  var apiKey = "5eb37a19973c9457201128f6d1d5ae80";
@@ -50,13 +57,34 @@ getForecast = function (city) {
   fetch(apiUrl2)
     .then(function (response) {
       if (response.ok) {
-       
-        response.json().then(function (data) {
+       response.json().then(function (data) {
           getForecast1(data);
+          getUV(data);
+          // console.log(data)
         });
       }
     });
 };
+
+function getUV(data) {
+  var lat = data.city.coord.lat;
+  var long = data.city.coord.lon;
+  console.log(long);
+  var apiKey = "5eb37a19973c9457201128f6d1d5ae80";  
+  var apiUrl = "https://api.openweathermap.org/data/2.5/onecall?lat="+ lat + "&lon=" + long + "&exclude=hourly,daily&appid=" + apiKey;
+    fetch(apiUrl)
+      .then(function (response) {
+        if (response.ok) {
+          response.json().then(function (data) {
+            document.getElementById('uvindex').innerHTML = "UV Index: " + Math.floor(data.current.uvi);
+            });
+         }
+         var currentUV = Math.floor(data.current.uvi);
+         if(currentUV < 3) {
+
+         }
+      });
+  }
 
 function getWeather(data) {
   var icon = document.querySelector(".icon").innerHTML = "<img src='http://openweathermap.org/img/w/" + data.weather[0].icon + ".png' alt='Icon depicting current weather.'>";
@@ -66,11 +94,9 @@ function getWeather(data) {
   document.getElementById('temp').innerHTML = fahrenheit + '&deg;' + " F";
   document.getElementById('humidity').innerHTML = "Humidity: " + data.main.humidity + "%";
   document.getElementById('windspeed').innerHTML = "Wind Speed: " + data.wind.speed + "mph";
-  
-
+ 
 
 };
-
 
 function getForecast1(data) {
   document.querySelector(".onedayicon").innerHTML = "<img src='http://openweathermap.org/img/w/" + data.list[4].weather[0].icon + ".png' alt='Icon depicting current weather.'>";
@@ -96,7 +122,7 @@ function getForecast1(data) {
 };
 
 
-
+defaultCity();
 
 
 submitEl.addEventListener("click", formSumbitHandler);
