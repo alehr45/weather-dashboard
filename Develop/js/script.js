@@ -1,9 +1,9 @@
 var cities = [];
-var city = document.getElementById("city-search-form");
 var citySearchEl = document.querySelector("#city");
 var momentEl = moment().format('MMMM Do YYYY, h:mm:ss a');
 var today = document.querySelector("#currentDay");
 var submitEl = document.querySelector(".submit");
+
 
 today.innerHTML = (momentEl);
 
@@ -11,9 +11,12 @@ var formSumbitHandler = function(event){
   event.preventDefault();
   var city = citySearchEl.value.trim();
   if(city){
-      getForecast(city);
-      getForecast1(city);
-      getWeather(city)
+    getForecast(city);
+    saveCity(city);
+    getForecast(city);
+   
+  
+     
      citySearchEl.value = "";
   } else{
       alert("Please enter a City");
@@ -24,14 +27,14 @@ var saveSearch = function(){
   localStorage.setItem("cities", JSON.stringify(cities));
 };
 
-saveCity = function () {
-  // city = "los angeles";
+saveCity = function (city) {
+
   var apiKey = "5eb37a19973c9457201128f6d1d5ae80";
   var apiUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey;
   fetch(apiUrl)
     .then(function (response) {
       if (response.ok) {
-        console.log(response);
+        
         response.json().then(function (data) {
           getWeather(data);
         });
@@ -40,14 +43,14 @@ saveCity = function () {
 
 };
 
-getForecast = function () {
-  // city = "los angeles";
+getForecast = function (city) {
+
  var apiKey = "5eb37a19973c9457201128f6d1d5ae80";
   var apiUrl2 = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + apiKey;
   fetch(apiUrl2)
     .then(function (response) {
       if (response.ok) {
-        console.log(response);
+       
         response.json().then(function (data) {
           getForecast1(data);
         });
@@ -95,7 +98,5 @@ function getForecast1(data) {
 
 
 
-getForecast();
-saveCity();
 
-submitEl.addEventListener("submit", formSumbitHandler);
+submitEl.addEventListener("click", formSumbitHandler);
