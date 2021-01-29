@@ -1,18 +1,33 @@
+var cities = [];
+var city = document.getElementById("city-search-form");
+var citySearchEl = document.querySelector("#city");
 var momentEl = moment().format('MMMM Do YYYY, h:mm:ss a');
 var today = document.querySelector("#currentDay");
+var submitEl = document.querySelector(".submit");
 
 today.innerHTML = (momentEl);
 
+var formSumbitHandler = function(event){
+  event.preventDefault();
+  var city = citySearchEl.value.trim();
+  if(city){
+      getForecast(city);
+      getForecast1(city);
+      getWeather(city)
+     citySearchEl.value = "";
+  } else{
+      alert("Please enter a City");
+  }
+};
+ 
+var saveSearch = function(){
+  localStorage.setItem("cities", JSON.stringify(cities));
+};
+
 saveCity = function () {
-
-
-  // var citySearchElement = document.getElementById("userinput1");
-  var citySearch = "los angeles"
+  // city = "los angeles";
   var apiKey = "5eb37a19973c9457201128f6d1d5ae80";
-  var apiUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + citySearch + "&appid=" + apiKey;
-
-
-
+  var apiUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey;
   fetch(apiUrl)
     .then(function (response) {
       if (response.ok) {
@@ -26,11 +41,9 @@ saveCity = function () {
 };
 
 getForecast = function () {
-  var citySearch = "los angeles"
-  var apiKey = "5eb37a19973c9457201128f6d1d5ae80";
-  var apiUrl2 = "https://api.openweathermap.org/data/2.5/forecast?q=" + citySearch + "&appid=" + apiKey;
-
-
+  // city = "los angeles";
+ var apiKey = "5eb37a19973c9457201128f6d1d5ae80";
+  var apiUrl2 = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + apiKey;
   fetch(apiUrl2)
     .then(function (response) {
       if (response.ok) {
@@ -40,10 +53,7 @@ getForecast = function () {
         });
       }
     });
-
-
-
-}
+};
 
 function getWeather(data) {
   var icon = document.querySelector(".icon").innerHTML = "<img src='http://openweathermap.org/img/w/" + data.weather[0].icon + ".png' alt='Icon depicting current weather.'>";
@@ -53,7 +63,7 @@ function getWeather(data) {
   document.getElementById('temp').innerHTML = fahrenheit + '&deg;' + " F";
   document.getElementById('humidity').innerHTML = "Humidity: " + data.main.humidity + "%";
   document.getElementById('windspeed').innerHTML = "Wind Speed: " + data.wind.speed + "mph";
-  document.getElementById('windspeed').innerHTML = "Wind Speed: " + data.wind.speed + "mph";
+  
 
 
 };
@@ -80,8 +90,6 @@ function getForecast1(data) {
   document.getElementById('fivedaydate').innerHTML = moment().add(5, 'days').format('dddd');
   document.getElementById('fivedaytemp').innerHTML = "Temp: " + Math.round(((parseFloat(data.list[33].main.temp) - 273.15) * 1.8) + 32) + '&deg;';
   document.getElementById('fivedayhumidity').innerHTML = "Humidity: " + data.list[33].main.humidity + "%";
-
-
 };
 
 
@@ -89,3 +97,5 @@ function getForecast1(data) {
 
 getForecast();
 saveCity();
+
+submitEl.addEventListener("submit", formSumbitHandler);

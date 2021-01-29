@@ -14,11 +14,12 @@
 </header>
 
 <body>
-    <form class="userinput">
-        <input id="userinput1" type="text" placeholder="Search for city.." name="search">
-        <button type="submit"><i class="fa fa-search"></i></button>
+    <form class="userinput" id = "city-search-form">
+        <input id="city" type="text" placeholder="Search for city.." name="search">
+        <button type="submit" class="fa fa-search submit"></button>
         <div class="container">
             <div id="weather">
+            </form>
 
                 <h1 class="location" id="location"></h1>
                 <h1 id="currentDay" class="time"></h1>
@@ -28,7 +29,7 @@
                 <h1 class="windspeed" id="windspeed"></h1>
             </div>
         </div>
-    </form>
+    
 
     <div class="container" >
         <div class="row">
@@ -78,7 +79,8 @@
 
 
 </body>
-
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
     integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
     crossorigin="anonymous"></script>

@@ -6,6 +6,7 @@ box-sizing: border-box;
   
  
 form.userinput input[type=text] {
+  border-radius: 25px;
     padding: 5px;
     font-size: 17px;
     border: 1px solid grey;
@@ -16,6 +17,7 @@ form.userinput input[type=text] {
   
 
 form.userinput button {
+  border-radius: 25px;
     float: left;
     width: 5%;
     padding: 5px;
@@ -40,6 +42,7 @@ form.userinput::after {
 
 
 .header {
+  border-radius: 25px;
 font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 font-size: 40px;
 text-shadow: 1px 1px #414040;
@@ -48,11 +51,12 @@ padding: 20px;
 display: flex;
 justify-content: center;
 color: white;
-margin-bottom: 0px;
+margin-bottom: 2px;
 border: 0.75px solid black;
 }
 
 .container {
+  border-radius: 25px;
   border: 0.5px solid rgb(122, 122, 122);
   text-align: center;
   background-color: rgb(224, 224, 224);
