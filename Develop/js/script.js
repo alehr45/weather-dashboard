@@ -1,3 +1,4 @@
+
 var cities = [];
 var citySearchEl = document.querySelector("#city");
 var momentEl = moment().format('MMMM Do YYYY, h:mm:ss a');
@@ -5,23 +6,37 @@ var today = document.querySelector("#currentDay");
 var submitEl = document.querySelector(".submit");
 today.innerHTML = (momentEl);
 
+
+//Takes user input 
 var formSumbitHandler = function (event) {
   event.preventDefault();
   var city = citySearchEl.value.trim();
   if (city) {
     pullAPI2(city);
     pullAPI(city);
-    pullAPI2(city);
     citySearchEl.value = "";
   } else {
     alert("Please enter a City");
   }
+  saveSearch();
+  recentSearches();
 };
 
 var saveSearch = function () {
   localStorage.setItem("cities", JSON.stringify(cities));
 };
 
+
+function recentSearches () {
+var recent1 = storage.getItem(cities);
+localStorage.getItem("cities", JSON.stringify(cities));
+document.getElementById('search1') = recent1.innerHTML
+
+};
+
+
+
+//Pulls weather data from openweathermap API
 pullAPI = function (city) {
   var apiKey = "5eb37a19973c9457201128f6d1d5ae80";
   var apiUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey; "&exclude=hourly,daily&appid=5eb37a19973c9457201128f6d1d5ae80"
@@ -36,15 +51,7 @@ pullAPI = function (city) {
 
 };
 
-function defaultCity() {
-  let city = "Honolulu";
-  pullAPI2(city);
-  pullAPI(city);
-  pullAPI2(city);
-
-  cityName = "";
-}
-
+//Pulls weather data from openweathermap 5 day forecast API
 pullAPI2 = function (city) {
   var apiKey = "5eb37a19973c9457201128f6d1d5ae80";
   var apiUrl2 = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + apiKey;
@@ -59,6 +66,15 @@ pullAPI2 = function (city) {
     });
 };
 
+//Makes a default city ind info show on page load
+function defaultCity() {
+  let city = "Honolulu";
+  pullAPI2(city);
+  pullAPI(city);
+  cityName = "";
+}
+
+//Gets data for the UV index and changes color with severity
 function getUV(data) {
   var lat = data.city.coord.lat;
   var long = data.city.coord.lon;
@@ -78,7 +94,7 @@ function getUV(data) {
       }
     });
 };
-
+//Displays weather data in the one day forecast container
 function oneDayForecast(data) {
   var icon = document.querySelector(".icon").innerHTML = "<img src='http://openweathermap.org/img/w/" + data.weather[0].icon + ".png' alt='Icon depicting current weather.'>";
   var fahrenheit = Math.round(((parseFloat(data.main.temp) - 273.15) * 1.8) + 32);
@@ -90,7 +106,7 @@ function oneDayForecast(data) {
 
 
 };
-
+//Displays weather data in the five day forecast container
 function fiveDayForecast(data) {
   document.querySelector(".onedayicon").innerHTML = "<img src='http://openweathermap.org/img/w/" + data.list[4].weather[0].icon + ".png' alt='Icon depicting current weather.'>";
   document.getElementById('onedaydate').innerHTML = moment().add(1, 'days').format('dddd');
@@ -116,6 +132,4 @@ function fiveDayForecast(data) {
 
 
 defaultCity();
-
-
 submitEl.addEventListener("click", formSumbitHandler);
