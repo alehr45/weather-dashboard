@@ -11,27 +11,26 @@ box-sizing: border-box;
  
 form.userinput input[type=text] {
   border-radius: 25px;
-  
   padding: 5px;
-    font-size: 17px;
-    border: 1px solid grey;
-    float: left;
-    width: 20%;
-    background: #f1f1f1;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 20%;
+  background: #f1f1f1;
 }
   
 
 form.userinput button {
   border-radius: 25px;
- float: left;
-    width: 5%;
-    padding: 6.75px;
-    background: #2196F3;
-    color: white;
-    font-size: 17px;
-    border: 0.5px solid grey;
-    border-left: none; 
-    cursor: pointer;
+  float: left;
+  width: 5%;
+  padding: 6.75px;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 0.5px solid grey;
+  border-left: none; 
+  cursor: pointer;
   }
   
 form.userinput button:hover {
@@ -60,7 +59,7 @@ border: 0.75px solid grey;
 }
 
 .container {
-  background-image: url("file:///Users/alexjessica/Desktop/projects/weather-dashboard/background.jpeg"); 
+  
   margin: 5px;
   border-radius: 25px;
   border: 0.5px solid rgb(122, 122, 122);
@@ -75,13 +74,15 @@ border: 0.75px solid grey;
 .uvindex {
  margin-top: 20px;
   border-radius: 25px;
+  border: 0.5px solid rgb(122, 122, 122);
+  
 }
 
 .container2 {
   width: 100%;
   padding-top: 5px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
 h1 {

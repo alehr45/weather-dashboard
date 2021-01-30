@@ -37,7 +37,7 @@ pullAPI = function (city) {
 };
 
 function defaultCity() {
-  let city = "Nashville";
+  let city = "Honolulu";
   pullAPI2(city);
   pullAPI(city);
   pullAPI2(city);
