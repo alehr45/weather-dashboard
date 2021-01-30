@@ -15,6 +15,7 @@ box-sizing: border-box;
 }
  
 form.userinput input[type=text] {
+  padding-left: 20px ;
   padding: 5px;
     font-size: 17px;
     border: 1px solid grey;
@@ -77,11 +78,12 @@ border: 0.75px solid grey;
 }
 
 .uvindex {
+ margin-top: 20px;
   border-radius: 25px;
 }
 
 .container2 {
-  padding-top: 20px;
+  padding-top: 10px;
   display: flex;
   justify-content: space-evenly;
 }
@@ -96,7 +98,7 @@ h1 {
   border: 0.5px solid rgb(122, 122, 122);
   border-radius: 25px;
   background-color: rgb(218, 190, 33);
-  font-size: 30px;
+  font-size: 40px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
