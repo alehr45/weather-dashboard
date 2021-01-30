@@ -27,12 +27,12 @@ var saveSearch = function () {
 };
 
 
-function recentSearches () {
-var recent1 = storage.getItem(cities);
-localStorage.getItem("cities", JSON.stringify(cities));
-document.getElementById('search1') = recent1.innerHTML
+// function recentSearches () {
+// var recent1 = storage.getItem(cities);
+// localStorage.getItem("cities", JSON.stringify(cities));
+// document.getElementById('search1') = recent1.innerHTML
 
-};
+// };
 
 
 
