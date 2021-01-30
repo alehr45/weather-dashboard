@@ -11,9 +11,9 @@ var formSumbitHandler = function (event) {
   event.preventDefault();
   var city = citySearchEl.value.trim();
   if (city) {
-    getForecast(city);
-    saveCity(city);
-    getForecast(city);
+    pullAPI2(city);
+    pullAPI(city);
+    pullAPI2(city);
     citySearchEl.value = "";
   } else {
     alert("Please enter a City");
@@ -24,15 +24,14 @@ var saveSearch = function () {
   localStorage.setItem("cities", JSON.stringify(cities));
 };
 
-saveCity = function (city) {
-
+pullAPI = function (city) {
   var apiKey = "5eb37a19973c9457201128f6d1d5ae80";
   var apiUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apiKey; "&exclude=hourly,daily&appid=5eb37a19973c9457201128f6d1d5ae80"
   fetch(apiUrl)
     .then(function (response) {
       if (response.ok) {
         response.json().then(function (data) {
-          getWeather(data);
+          oneDayForecast(data);
         });
       }
     });
@@ -41,24 +40,21 @@ saveCity = function (city) {
 
 function defaultCity() {
   let city = "Nashville";
-  getForecast(city);
-  saveCity(city);
-  getForecast(city);
+  pullAPI2(city);
+  pullAPI(city);
+  pullAPI2(city);
 
   cityName = "";
 }
 
-
-
-getForecast = function (city) {
-
+pullAPI2 = function (city) {
   var apiKey = "5eb37a19973c9457201128f6d1d5ae80";
   var apiUrl2 = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + apiKey;
   fetch(apiUrl2)
     .then(function (response) {
       if (response.ok) {
         response.json().then(function (data) {
-          getForecast1(data);
+          fiveDayForecast(data);
           getUV(data);
         });
       }
@@ -66,7 +62,6 @@ getForecast = function (city) {
 };
 
 function getUV(data) {
-
   var lat = data.city.coord.lat;
   var long = data.city.coord.lon;
   var apiKey = "5eb37a19973c9457201128f6d1d5ae80";
@@ -76,19 +71,17 @@ function getUV(data) {
       if (response.ok) {
         response.json().then(function (data) {
           document.getElementById('uvindex').innerHTML = "UV Index: " + Math.floor(data.current.uvi);
-          if (data.current.uvi < 2) document.getElementById("uvindex").style.backgroundColor = "lightblue";
-          else if (data.current.uvi < 4) document.getElementById("uvindex").style.backgroundColor = "blue";
+          if (data.current.uvi < 2) document.getElementById("uvindex").style.backgroundColor = "lightyellow";
+          else if (data.current.uvi < 4) document.getElementById("uvindex").style.backgroundColor = "yellow";
           else if (data.current.uvi < 6) document.getElementById("uvindex").style.backgroundColor = "orange";
           else if (data.current.uvi < 8) document.getElementById("uvindex").style.backgroundColor = "red";
           else if (data.current.uvi < 10) document.getElementById("uvindex").style.backgroundColor = "darkred";
-});
-}});
+        });
+      }
+    });
 };
 
-
-
-
-function getWeather(data) {
+function oneDayForecast(data) {
   var icon = document.querySelector(".icon").innerHTML = "<img src='http://openweathermap.org/img/w/" + data.weather[0].icon + ".png' alt='Icon depicting current weather.'>";
   var fahrenheit = Math.round(((parseFloat(data.main.temp) - 273.15) * 1.8) + 32);
   document.getElementById("icon").innerHTML = icon
@@ -100,7 +93,7 @@ function getWeather(data) {
 
 };
 
-function getForecast1(data) {
+function fiveDayForecast(data) {
   document.querySelector(".onedayicon").innerHTML = "<img src='http://openweathermap.org/img/w/" + data.list[4].weather[0].icon + ".png' alt='Icon depicting current weather.'>";
   document.getElementById('onedaydate').innerHTML = moment().add(1, 'days').format('dddd');
   document.getElementById('onedaytemp').innerHTML = "Temp: " + Math.round(((parseFloat(data.list[4].main.temp) - 273.15) * 1.8) + 32) + '&deg;';

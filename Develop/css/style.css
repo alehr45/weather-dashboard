@@ -48,6 +48,7 @@ form.userinput::after {
 }
 
 
+
 .header {
 border-radius: 25px;
 font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -63,26 +64,32 @@ border: 0.75px solid grey;
 }
 
 .container {
+  background-image: url("file:///Users/alexjessica/Desktop/projects/weather-dashboard/background.png"); 
   margin: 5px;
   border-radius: 25px;
   border: 0.5px solid rgb(122, 122, 122);
   text-align: center;
   background-color: rgb(224, 224, 224);
   padding-top: 0px;
+  padding-bottom: 70px;
   display: flex;
   justify-content: center;
 }
 
+.uvindex {
+  border-radius: 25px;
+}
+
 .container2 {
+  padding-top: 20px;
   display: flex;
   justify-content: space-evenly;
-background-color: white;
-
-
 }
 
 h1 {
   font-size: 20px;
+  color: rgb(44, 44, 44);
+ 
 }
 
 .temp {
@@ -94,7 +101,7 @@ h1 {
 }
 
 .location {
-  font-size: 45px;
+  font-size: 55px;
 }
 
 .forecastbox1, .forecastbox2, .forecastbox3, .forecastbox4, .forecastbox5 {
@@ -110,9 +117,3 @@ border: 0.75px solid grey;
 
 }
 
-
-      
-.icon {
-font-size: 40px;
-
-      }
