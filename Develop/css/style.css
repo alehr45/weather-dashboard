@@ -1,8 +1,5 @@
 * {
 box-sizing: border-box;
-
-
-
 }
 
 .recentsearches {
@@ -10,12 +7,11 @@ box-sizing: border-box;
   justify-content: space-evenly;
   margin-top: 15px;
   font-size: 20px;
-
-
 }
  
 form.userinput input[type=text] {
-  padding-left: 20px ;
+  border-radius: 25px;
+  
   padding: 5px;
     font-size: 17px;
     border: 1px solid grey;
@@ -26,6 +22,7 @@ form.userinput input[type=text] {
   
 
 form.userinput button {
+  border-radius: 25px;
  float: left;
     width: 5%;
     padding: 6.75px;
@@ -47,8 +44,6 @@ form.userinput::after {
     clear: both;
     display: table;
 }
-
-
 
 .header {
 border-radius: 25px;
@@ -83,7 +78,8 @@ border: 0.75px solid grey;
 }
 
 .container2 {
-  padding-top: 10px;
+  width: 100%;
+  padding-top: 5px;
   display: flex;
   justify-content: space-evenly;
 }
@@ -112,7 +108,7 @@ border-radius: 25px;
 margin: 10px;
 padding-top: 5px;
 text-align: center;
-width: 200px;
+width: 233px;
 height: 200px;
 background-color:  rgb(122, 184, 219);
 border: 0.75px solid grey;
