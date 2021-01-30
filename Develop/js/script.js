@@ -7,20 +7,20 @@ var submitEl = document.querySelector(".submit");
 
 today.innerHTML = (momentEl);
 
-var formSumbitHandler = function(event){
+var formSumbitHandler = function (event) {
   event.preventDefault();
   var city = citySearchEl.value.trim();
-  if(city){
+  if (city) {
     getForecast(city);
     saveCity(city);
     getForecast(city);
-  citySearchEl.value = "";
-  } else{
-      alert("Please enter a City");
+    citySearchEl.value = "";
+  } else {
+    alert("Please enter a City");
   }
 };
- 
-var saveSearch = function(){
+
+var saveSearch = function () {
   localStorage.setItem("cities", JSON.stringify(cities));
 };
 
@@ -44,47 +44,49 @@ function defaultCity() {
   getForecast(city);
   saveCity(city);
   getForecast(city);
- 
- cityName = "";
+
+  cityName = "";
 }
 
-  
+
 
 getForecast = function (city) {
 
- var apiKey = "5eb37a19973c9457201128f6d1d5ae80";
+  var apiKey = "5eb37a19973c9457201128f6d1d5ae80";
   var apiUrl2 = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + apiKey;
   fetch(apiUrl2)
     .then(function (response) {
       if (response.ok) {
-       response.json().then(function (data) {
+        response.json().then(function (data) {
           getForecast1(data);
           getUV(data);
-          // console.log(data)
         });
       }
     });
 };
 
 function getUV(data) {
+
   var lat = data.city.coord.lat;
   var long = data.city.coord.lon;
-  console.log(long);
-  var apiKey = "5eb37a19973c9457201128f6d1d5ae80";  
-  var apiUrl = "https://api.openweathermap.org/data/2.5/onecall?lat="+ lat + "&lon=" + long + "&exclude=hourly,daily&appid=" + apiKey;
-    fetch(apiUrl)
-      .then(function (response) {
-        if (response.ok) {
-          response.json().then(function (data) {
-            document.getElementById('uvindex').innerHTML = "UV Index: " + Math.floor(data.current.uvi);
-            });
-         }
-         var currentUV = Math.floor(data.current.uvi);
-         if(currentUV < 3) {
+  var apiKey = "5eb37a19973c9457201128f6d1d5ae80";
+  var apiUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + long + "&exclude=hourly,daily&appid=" + apiKey;
+  fetch(apiUrl)
+    .then(function (response) {
+      if (response.ok) {
+        response.json().then(function (data) {
+          document.getElementById('uvindex').innerHTML = "UV Index: " + Math.floor(data.current.uvi);
+          if (data.current.uvi < 2) document.getElementById("uvindex").style.backgroundColor = "lightblue";
+          else if (data.current.uvi < 4) document.getElementById("uvindex").style.backgroundColor = "blue";
+          else if (data.current.uvi < 6) document.getElementById("uvindex").style.backgroundColor = "orange";
+          else if (data.current.uvi < 8) document.getElementById("uvindex").style.backgroundColor = "red";
+          else if (data.current.uvi < 10) document.getElementById("uvindex").style.backgroundColor = "darkred";
+});
+}});
+};
 
-         }
-      });
-  }
+
+
 
 function getWeather(data) {
   var icon = document.querySelector(".icon").innerHTML = "<img src='http://openweathermap.org/img/w/" + data.weather[0].icon + ".png' alt='Icon depicting current weather.'>";
@@ -94,7 +96,7 @@ function getWeather(data) {
   document.getElementById('temp').innerHTML = fahrenheit + '&deg;' + " F";
   document.getElementById('humidity').innerHTML = "Humidity: " + data.main.humidity + "%";
   document.getElementById('windspeed').innerHTML = "Wind Speed: " + data.wind.speed + "mph";
- 
+
 
 };
 
