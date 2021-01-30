@@ -3,8 +3,6 @@ var citySearchEl = document.querySelector("#city");
 var momentEl = moment().format('MMMM Do YYYY, h:mm:ss a');
 var today = document.querySelector("#currentDay");
 var submitEl = document.querySelector(".submit");
-
-
 today.innerHTML = (momentEl);
 
 var formSumbitHandler = function (event) {

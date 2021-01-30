@@ -60,7 +60,7 @@ border: 0.75px solid grey;
 }
 
 .container {
-  background-image: url("file:///Users/alexjessica/Desktop/projects/weather-dashboard/background.png"); 
+  background-image: url("file:///Users/alexjessica/Desktop/projects/weather-dashboard/background.jpeg"); 
   margin: 5px;
   border-radius: 25px;
   border: 0.5px solid rgb(122, 122, 122);
@@ -91,6 +91,7 @@ h1 {
 }
 
 .temp {
+  color: rgb(44, 44, 44);
   border: 0.5px solid rgb(122, 122, 122);
   border-radius: 25px;
   background-color: rgb(218, 190, 33);
@@ -99,6 +100,7 @@ h1 {
 }
 
 .location {
+  color: rgb(44, 44, 44);
   font-size: 55px;
 }
 
