@@ -47,7 +47,7 @@ function defaultCity() {
 
 pullAPI2 = function (city) {
   var apiKey = "5eb37a19973c9457201128f6d1d5ae80";
-  var apiUrl2 = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + apiKey;
+  var apiUrl2 = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + apiKey;
   fetch(apiUrl2)
     .then(function (response) {
       if (response.ok) {
@@ -63,7 +63,7 @@ function getUV(data) {
   var lat = data.city.coord.lat;
   var long = data.city.coord.lon;
   var apiKey = "5eb37a19973c9457201128f6d1d5ae80";
-  var apiUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + long + "&exclude=hourly,daily&appid=" + apiKey;
+  var apiUrl = "http://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + long + "&exclude=hourly,daily&appid=" + apiKey;
   fetch(apiUrl)
     .then(function (response) {
       if (response.ok) {
