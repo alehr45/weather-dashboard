@@ -4,6 +4,8 @@ var citySearchEl = document.querySelector("#city");
 var momentEl = moment().format('MMMM Do YYYY, h:mm:ss a');
 var today = document.querySelector("#currentDay");
 var submitEl = document.querySelector(".submit");
+var pastSearchButtonEl = document.querySelector("#past-search-buttons");
+
 today.innerHTML = (momentEl);
 
 
@@ -19,20 +21,24 @@ var formSumbitHandler = function (event) {
     alert("Please enter a City");
   }
   saveSearch();
-  recentSearches();
+  pastSearch(city);
+  cities.push(city);
+ 
 };
 
 var saveSearch = function () {
-  localStorage.setItem("cities", JSON.stringify(cities));
+  localStorage.setItem("cities", JSON.stringify(city));
 };
 
 
-// function recentSearches () {
-// var recent1 = storage.getItem(cities);
-// localStorage.getItem("cities", JSON.stringify(cities));
-// document.getElementById('search1') = recent1.innerHTML
-
-// };
+var pastSearch = function(pastSearch){
+ pastSearchEl = document.createElement("button");
+  pastSearchEl.textContent = pastSearch;
+  pastSearchEl.classList ="btn btn-primary btn-lg btn-block";
+  pastSearchEl.setAttribute("data-city",pastSearch)
+  pastSearchEl.setAttribute("type", "submit");
+  pastSearchButtonEl.prepend(pastSearchEl);
+}
 
 
 

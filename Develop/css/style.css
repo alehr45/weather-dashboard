@@ -2,29 +2,34 @@
 box-sizing: border-box;
 }
 
-.recentsearches {
-  display: flex;
-  justify-content: space-evenly;
-  margin-top: 15px;
-  font-size: 20px;
-}
+
  
 form.userinput input[type=text] {
-  border-radius: 25px;
-  padding: 5px;
+padding: 7px;
   font-size: 17px;
-  border: 1px solid grey;
+  border: 1px solid rgb(153, 153, 153);
   float: left;
   width: 20%;
   background: #f1f1f1;
 }
-  
+
+.pastsearch {
+  padding: 2px;
+flex-direction: left ;
+  padding-top: 5px;
+  margin: 20px;
+  display: flex;
+width: 4000px;
+}
+
+
 
 form.userinput button {
-  border-radius: 25px;
+  
+  padding-left: 5px;
   float: left;
   width: 5%;
-  padding: 6.75px;
+  padding: 8.5px;
   background: #2196F3;
   color: white;
   font-size: 17px;
@@ -59,7 +64,7 @@ border: 0.75px solid grey;
 }
 
 .container {
-  
+  background-image: url("file:///Users/alexjessica/Desktop/projects/weather-dashboard/background.jpeg"); 
   margin: 5px;
   border-radius: 25px;
   border: 0.5px solid rgb(122, 122, 122);
