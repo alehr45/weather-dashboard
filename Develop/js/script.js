@@ -14,8 +14,8 @@ var formSumbitHandler = function (event) {
   event.preventDefault();
   var city = citySearchEl.value.trim();
   if (city) {
-    pullAPI2(city);
     pullAPI(city);
+    pullAPI2(city); 
     citySearchEl.value = "";
   } else {
     alert("Please enter a City");
@@ -23,6 +23,7 @@ var formSumbitHandler = function (event) {
   saveSearch();
   pastSearch(city);
   cities.push(city);
+ 
  
 };
 
@@ -32,13 +33,16 @@ var saveSearch = function () {
 
 
 var pastSearch = function(pastSearch){
+
  pastSearchEl = document.createElement("button");
   pastSearchEl.textContent = pastSearch;
-  pastSearchEl.classList ="btn btn-primary btn-lg btn-block";
-  pastSearchEl.setAttribute("data-city",pastSearch)
+  pastSearchEl.classList ="btn btn-primary btn-lg btn-block yellow";
+  pastSearchEl.setAttribute("data-city", pastSearch)
   pastSearchEl.setAttribute("type", "submit");
   pastSearchButtonEl.prepend(pastSearchEl);
+  
 }
+
 
 
 
@@ -72,9 +76,9 @@ pullAPI2 = function (city) {
     });
 };
 
-//Makes a default city ind info show on page load
+// Makes a default city and info show on page load
 function defaultCity() {
-  let city = "Honolulu";
+  let city = "Nashville";
   pullAPI2(city);
   pullAPI(city);
   cityName = "";
@@ -136,6 +140,19 @@ function fiveDayForecast(data) {
   document.getElementById('fivedayhumidity').innerHTML = "Humidity: " + data.list[33].main.humidity + "%";
 };
 
+var pastSearchHandler = function(event){
+  event.preventDefault();
+ let city = event.target.getAttribute("data-city")
+  if(city){
+    pullAPI(city);
+    pullAPI2(city); 
+  
+     
+  };
+};
+
+
 
 defaultCity();
 submitEl.addEventListener("click", formSumbitHandler);
+pastSearchButtonEl.addEventListener("click", pastSearchHandler);
