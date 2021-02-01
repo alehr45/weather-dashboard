@@ -6,10 +6,9 @@ box-sizing: border-box;
 
  
 form.userinput input[type=text] {
-
   border-radius: 15px 0px 0px 15px;
   padding-left: 10px;
-padding: 7px;
+  padding: 7px;
   font-size: 17px;
   border: 1px solid rgb(153, 153, 153);
   float: left;
@@ -25,15 +24,13 @@ padding: 7px;
   margin: 20px;
   display: flex;
   width: 6000px;
-  color: rgb(218, 190, 33);
+ 
 }
 
-.yellow {
-background-color: yellow;
 
-}
 
 form.userinput button {
+
   margin-right: 8px;
   padding-left: 10px;
   float: left;

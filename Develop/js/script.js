@@ -36,15 +36,13 @@ var pastSearch = function(pastSearch){
 
  pastSearchEl = document.createElement("button");
   pastSearchEl.textContent = pastSearch;
-  pastSearchEl.classList ="btn btn-primary btn-lg btn-block yellow";
+  pastSearchEl.classList ="btn btn-primary btn-lg btn-block";
   pastSearchEl.setAttribute("data-city", pastSearch)
   pastSearchEl.setAttribute("type", "submit");
+  
   pastSearchButtonEl.prepend(pastSearchEl);
   
 }
-
-
-
 
 //Pulls weather data from openweathermap API
 pullAPI = function (city) {
@@ -146,8 +144,6 @@ var pastSearchHandler = function(event){
   if(city){
     pullAPI(city);
     pullAPI2(city); 
-  
-     
   };
 };
 
