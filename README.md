@@ -9,7 +9,7 @@ Forecast includes current time, temperature, humidity, uv index and weather cond
 
 
 
-Search history saves in local storage so you
+Search history saves in local storage
 
 
 
